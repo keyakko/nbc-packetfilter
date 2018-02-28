@@ -6,7 +6,7 @@ int main(void) {
 	
 	FILE *fp, *out;
 	
-	char *ip[20], prev_ip[20];
+	char ip[20], prev_ip[20];
 	int count, prev_count = 0;
 
 	fp = fopen("o_source", "rt");
@@ -21,16 +21,16 @@ int main(void) {
 		return -2;
 	}
 	
-	while (fscanf(fp, "%s\t%d", *ip, &count) != EOF) {
-		printf("%s\n", *ip);
+	while (fscanf(fp, "%s\t%d", ip, &count) != EOF) {
+		printf("%s\n", ip);
 		printf("%d\n", count);
-		if (strcmp(*ip, prev_ip) == 0) {
+		if (strcmp(ip, prev_ip) == 0) {
 			count++;
 		} else {
 			if (prev_ip != NULL) {
 				fprintf(out, "%s %d\n", prev_ip, prev_count);
 			}
-			strcpy(prev_ip, *ip);
+			strcpy(prev_ip, ip);
 			prev_count = count;
 		}
 	}
