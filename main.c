@@ -25,7 +25,7 @@ int main(void) {
 		printf("%s\n", ip);
 		printf("%d\n", count);
 		if (strcmp(ip, prev_ip) == 0) {
-			count++;
+			prev_count += count;
 		} else {
 			if (prev_ip != NULL) {
 				fprintf(out, "%s %d\n", prev_ip, prev_count);
